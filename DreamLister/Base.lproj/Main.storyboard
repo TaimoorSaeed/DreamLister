@@ -38,7 +38,7 @@
                                 <rect key="frame" x="16" y="138" width="343" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="uhr-jG-xje">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="uhr-jG-xje" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uhr-jG-xje" id="AMq-SN-O27">
@@ -110,6 +110,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="details" destination="rjh-AE-2m9" id="F6F-N0-yds"/>
+                                            <outlet property="price" destination="O0n-U9-pYZ" id="DH2-58-pwe"/>
+                                            <outlet property="thumb" destination="G8Q-bw-s5p" id="C63-83-6io"/>
+                                            <outlet property="title" destination="mSe-iS-I36" id="pJS-k3-ska"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -131,6 +137,10 @@
                     <navigationItem key="navigationItem" title="DreamLister" id="cUx-9V-3UB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gRq-QS-JBc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segment" destination="UJc-Yg-IgX" id="8Uk-iG-bUD"/>
+                        <outlet property="tableView" destination="9P5-wf-M6q" id="AjO-wZ-HDS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
