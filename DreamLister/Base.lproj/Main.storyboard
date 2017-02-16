@@ -154,7 +154,7 @@
         <!--Add/Edit-->
         <scene sceneID="hLU-Wf-JLX">
             <objects>
-                <viewController id="t3u-hR-Vc7" sceneMemberID="viewController">
+                <viewController id="t3u-hR-Vc7" customClass="ItemDetailVC" customModule="DreamLister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ODa-fM-yCB"/>
                         <viewControllerLayoutGuide type="bottom" id="xmI-ku-ueT"/>
@@ -179,22 +179,16 @@
                                     <constraint firstAttribute="width" constant="111" id="hwH-5h-9H6"/>
                                 </constraints>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iW4-QV-Zg4" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="246" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iW4-QV-Zg4" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="135" y="83" width="224" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="sQ6-rm-ZZ4"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCM-HI-aAx" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="245" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCM-HI-aAx" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="135" y="121" width="224" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OEj-yD-8uS"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -275,6 +269,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="vUP-aM-vou"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="PriceFeild" destination="wCM-HI-aAx" id="0nb-LC-hL6"/>
+                        <outlet property="detailsField" destination="6KA-L6-kLv" id="OM6-XR-4xM"/>
+                        <outlet property="storePicker" destination="JQ0-Yf-eHS" id="iSv-tN-GhK"/>
+                        <outlet property="titleFeild" destination="iW4-QV-Zg4" id="tal-SQ-HsC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2u-n6-gBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,9 +285,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vhq-3O-Mgu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNc-OW-K5h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aNc-OW-K5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
