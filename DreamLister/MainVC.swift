@@ -23,7 +23,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        generateTestData()
+//        generateTestData()
         attemptFetch()
         
     }
@@ -31,6 +31,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        
+        configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
         
         return cell
     }
@@ -69,7 +71,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
-        
+        controller.delegate = self
         self.controller = controller
         
         do {
@@ -129,22 +131,22 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     func generateTestData() {
         
-        let item = Item(context: context)
-        item.title = "MacBook Pro"
-        item.price = 1800
-        item.detail = "I cant wait to buy this"
+                let item = Item(context: context)
+                item.title = "MacBook Pro"
+                item.price = 1800
+                item.detail = "I cant wait to buy this"
         
-        let item2 = Item(context: context)
-        item2.title = "Boose Headphones"
-        item2.price = 300
-        item2.detail = "Yayy Headphones"
+                let item2 = Item(context: context)
+                item2.title = "Boose Headphones"
+                item2.price = 300
+                item2.detail = "Yayy Headphones"
         
-        let item3 = Item(context: context)
-        item3.title = "Tesla Model S"
-        item3.price = 110000
-        item3.detail = "Dream Car"
+                let item3 = Item(context: context)
+                item3.title = "Tesla Model S"
+                item3.price = 110000
+                item3.detail = "Dream Car"
         
-        ad.saveContext()
+                ad.saveContext()
     }
     
     
