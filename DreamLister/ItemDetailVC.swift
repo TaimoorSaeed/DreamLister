@@ -98,10 +98,10 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
     @IBAction func savePressed(_ sender: UIButton) {
         
         var item: Item!
-        
-        let picture = Image(context: context)
-        picture.image = thumbImg.image
-        
+//        
+//        let picture = Image(context: context)
+//        picture.image = thumbImg.image
+//        
         
         
         if itemToEdit == nil {
@@ -173,18 +173,18 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func addImage(_ sender: UIButton) {
-       present(imagePicker, animated: true , completion: nil)
-        
-    }
+//    @IBAction func addImage(_ sender: UIButton) {
+//       present(imagePicker, animated: true , completion: nil)
+//        
+//    }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        
-        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-            thumbImg.image = img
-        }
-        imagePicker.dismiss(animated: true, completion: nil)
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        
+//        
+//        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        {
+//            thumbImg.image = img
+//        }
+//        imagePicker.dismiss(animated: true, completion: nil)
+//    }
 }
