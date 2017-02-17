@@ -144,9 +144,20 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
                         storePicker.selectRow(index, inComponent: 0, animated: false)
                         break
                     }
+                    
                     index += 1
+                    
                 }while (index < stores.count)
             }
         }
+    }
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
     }
 }

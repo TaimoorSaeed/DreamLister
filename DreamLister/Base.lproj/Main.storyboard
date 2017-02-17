@@ -267,7 +267,11 @@
                         <barButtonItem title="Item" id="HM9-gf-wxp"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Add/Edit" id="bC0-4o-27z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="vUP-aM-vou"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="vUP-aM-vou">
+                            <connections>
+                                <action selector="deletePressed:" destination="t3u-hR-Vc7" id="QfD-pN-6Vi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
