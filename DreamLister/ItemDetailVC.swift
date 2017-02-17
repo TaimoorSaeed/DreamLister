@@ -14,7 +14,8 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
     @IBOutlet weak var titleFeild : CustomTextField!
     @IBOutlet weak var PriceFeild : CustomTextField!
     @IBOutlet weak var detailsField : CustomTextField!
-    @IBOutlet weak var thumbImg: UIButton!
+    
+    @IBOutlet weak var thumbImg: UIImageView!
     
     
     var stores = [Store]()
@@ -34,7 +35,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         storePicker.dataSource = self
         
         imagePicker = UIImagePickerController()
-        imagePicker.delegate = UIImagePickerController()
+        imagePicker.delegate = self
         
         
         let store = Store(context: context)
@@ -96,9 +97,12 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
     
     @IBAction func savePressed(_ sender: UIButton) {
         
-//        let item = Item(context: context)
-        
         var item: Item!
+        
+        let picture = Image(context: context)
+        picture.image = thumbImg.image
+        
+        
         
         if itemToEdit == nil {
          
@@ -107,6 +111,8 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         } else {
             item = itemToEdit
         }
+        
+//        item.toImage = picture
         
         if let title = titleFeild.text {
             
@@ -139,6 +145,8 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
             PriceFeild.text = "\(item.price)"
             detailsField.text = item.detail
             
+//            thumbImg.image = item.toImage?.image as? UIImage
+            
             if let store = item.toStore{
                 
                 var index = 0
@@ -165,4 +173,18 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func addImage(_ sender: UIButton) {
+       present(imagePicker, animated: true , completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            thumbImg.image = img
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
 }
