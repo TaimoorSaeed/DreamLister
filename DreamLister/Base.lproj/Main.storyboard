@@ -278,6 +278,7 @@
                         <outlet property="PriceFeild" destination="wCM-HI-aAx" id="0nb-LC-hL6"/>
                         <outlet property="detailsField" destination="6KA-L6-kLv" id="OM6-XR-4xM"/>
                         <outlet property="storePicker" destination="JQ0-Yf-eHS" id="iSv-tN-GhK"/>
+                        <outlet property="thumbImg" destination="Aly-0S-oFO" id="yXa-14-zec"/>
                         <outlet property="titleFeild" destination="iW4-QV-Zg4" id="tal-SQ-HsC"/>
                     </connections>
                 </viewController>

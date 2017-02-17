@@ -8,17 +8,18 @@
 import UIKit
 import CoreData
 
-class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSource {
+class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
     @IBOutlet weak var storePicker : UIPickerView!
     @IBOutlet weak var titleFeild : CustomTextField!
     @IBOutlet weak var PriceFeild : CustomTextField!
     @IBOutlet weak var detailsField : CustomTextField!
+    @IBOutlet weak var thumbImg: UIButton!
     
     
     var stores = [Store]()
     var itemToEdit : Item?
+    var imagePicker : UIImagePickerController!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,9 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         
         storePicker.delegate = self
         storePicker.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = UIImagePickerController()
         
         
         let store = Store(context: context)
@@ -160,4 +164,5 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         
         _ = navigationController?.popViewController(animated: true)
     }
+    
 }
