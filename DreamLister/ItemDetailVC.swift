@@ -4,7 +4,6 @@
 //
 //  Created by Nano Degree on 16/02/2017.
 //  Copyright © 2017 Swift Pakistan. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -19,6 +18,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
     
     
     var stores = [Store]()
+    var itemToEdit : Item?
     
     
     override func viewDidLoad() {
@@ -48,6 +48,11 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
 
         ad.saveContext()
         getStores()
+        
+        if itemToEdit != nil {
+        
+            loadItemData()
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -87,7 +92,17 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
     
     @IBAction func savePressed(_ sender: UIButton) {
         
-        let item = Item(context: context)
+//        let item = Item(context: context)
+        
+        var item: Item!
+        
+        if itemToEdit == nil {
+         
+            item = Item(context: context)
+            
+        } else {
+            item = itemToEdit
+        }
         
         if let title = titleFeild.text {
             
@@ -113,6 +128,25 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate , UIPickerViewDataSou
         
     }
     
-    
-    
+    func loadItemData(){
+        if let item = itemToEdit {
+            
+            titleFeild.text = item.title
+            PriceFeild.text = "\(item.price)"
+            detailsField.text = item.detail
+            
+            if let store = item.toStore{
+                
+                var index = 0
+                repeat {
+                    let s = stores[index]
+                    if s.name == store.name {
+                        storePicker.selectRow(index, inComponent: 0, animated: false)
+                        break
+                    }
+                    index += 1
+                }while (index < stores.count)
+            }
+        }
+    }
 }
